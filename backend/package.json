@@ -11,5 +11,9 @@
   },
   "author": "Pviniks <contato@pviniks.com> (https://pviniks.com/)",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongodb": "^6.16.0"
+  }
 }
