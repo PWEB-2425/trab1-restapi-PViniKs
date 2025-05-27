@@ -1,12 +1,11 @@
-
 {
   "alunos": [
     {
-      "nome": "Joana",
-      "apelido": "Silva",
+      "nome": "Jair",
+      "apelido": "Castillo",
       "curso": 1,
       "anoCurricular": 2,
-      "idade" : 21
+      "idade" : 22
     },
     {
       "nome": "Paulo",
@@ -14,6 +13,13 @@
       "curso": 3,
       "anoCurricular": 3,
       "idade" : 20
+    },
+    {
+      "nome": "Melvin",
+      "apelido": "Sandoval",
+      "curso": 2,
+      "anoCurricular": 1,
+      "idade" : 25
     }
   ],
   "cursos": [
@@ -22,3 +28,4 @@
     { "id" : 3, "nomeDoCurso": "Bacharelado em Sistemas de Informação" }
   ]
 }
+
