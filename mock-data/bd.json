@@ -7,10 +7,18 @@
       "curso": 1,
       "anoCurricular": 2,
       "idade" : 21
+    },
+    {
+      "nome": "Paulo",
+      "apelido": "Kuss",
+      "curso": 3,
+      "anoCurricular": 3,
+      "idade" : 20
     }
   ],
   "cursos": [
     { "id" : 1, "nomeDoCurso": "Engenharia da Computação Gráfica e Multimédia" },
-    { "id" : 2, "nomeDoCurso": "Engenharia de Redes e Sistemas de Computadores" }
+    { "id" : 2, "nomeDoCurso": "Engenharia de Redes e Sistemas de Computadores" },
+    { "id" : 3, "nomeDoCurso": "Bacharelado em Sistemas de Informação" }
   ]
 }
