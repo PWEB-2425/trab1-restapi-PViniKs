@@ -9,14 +9,6 @@
       "id": "8a16"
     },
     {
-      "nome": "Paulo",
-      "apelido": "Kuss",
-      "curso": 3,
-      "anoCurricular": 3,
-      "idade": 20,
-      "id": "3058"
-    },
-    {
       "nome": "Melvin",
       "apelido": "Sandoval",
       "curso": 2,
@@ -25,7 +17,15 @@
       "id": "8a15"
     },
     {
-      "id": "4104",
+      "nome": "Paulo",
+      "apelido": "Kuss",
+      "curso": 3,
+      "anoCurricular": 3,
+      "idade": 20,
+      "id": "3058"
+    },
+    {
+      "id": "f9a1",
       "nome": "Isadora",
       "apelido": "Burigo",
       "curso": 4,
