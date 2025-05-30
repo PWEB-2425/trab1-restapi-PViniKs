@@ -8,31 +8,36 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <h2>Fetch API</h2>
-    <p>Nome: <input type="text" id="nomeAluno" placeholder="John"></p>
-    <p>Apelido: <input type="text" id="apelidoAluno" placeholder="Doe"></p>
-    <select id="cursoAluno">
-        <option value="1">Engenharia da Computação Gráfica e Multimédia</option>
-        <option value="2">Engenharia de Redes e Sistemas de Computadores</option>
-        <option value="3">Bacharelado em Sistemas de Informação</option>
-        <option value="4">Curso de Graduação em Cinema</option>
-    </select>
-    <br>
-    <select id="anoCurricular">
-        <option value="1">1º ano</option>
-        <option value="2">2º ano</option>
-        <option value="3">3º ano</option>
-        <option value="3">4º ano</option>
-    </select>
-    <select id="semestre">
-        <option value="1">1º semestre</option>
-        <option value="2">2º semestre</option>
-    </select>
-    <p>Idade: <input type="range" id="idadeAluno" min="17" max="1270" value="17" step="1"><span id="idadeValue">17</span></p>
-
-    <button id="addAluno">Adicionar Aluno</button>
-    <br>
-    <button id="verAlunos">Ver Alunos</button>
-    <button id="delAluno">Apagar Aluno</button>
+    <div class="container">
+        <h2>Fetch API</h2>
+        <hr>
+        <p>Nome: <input type="text" id="nomeAluno" placeholder="Padmé"></p>
+        <p>Apelido: <input type="text" id="apelidoAluno" placeholder="Amidala"></p>
+        <select id="cursoAluno">
+            <option value="4">Curso de Graduação em Cinema</option>
+            <option value="3">Bacharelado em Sistemas de Informação</option>
+            <option value="2">Engenharia de Redes e Sistemas de Computadores</option>
+            <option value="1">Engenharia da Computação Gráfica e Multimédia</option>
+        </select>
+        <br>
+        <select id="anoCurricular">
+            <option value="1">1º ano</option>
+            <option value="2">2º ano</option>
+            <option value="3">3º ano</option>
+            <option value="3">4º ano</option>
+        </select>
+        <select id="semestre">
+            <option value="1">1º semestre</option>
+            <option value="2">2º semestre</option>
+        </select>
+        <p>Idade: <span id="idadeValue">17</span>
+            <input type="range" id="idadeAluno" min="17" max="127" value="17" step="1">
+        </p>
+        <button id="addAluno">Adicionar Aluno</button>
+        <hr>
+        <button id="verAlunos">Ver Alunos</button>
+        <hr>
+        <button id="delAluno">Apagar Aluno</button>
+    </div>
 </body>
 </html>
