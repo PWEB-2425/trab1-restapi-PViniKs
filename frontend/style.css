@@ -18,8 +18,16 @@ h2 {
     text-align: center;
 }
 
-input[type="text"], input[type="range"], select {
+input[type="text"], input[type="range"] {
     width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+select {
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
