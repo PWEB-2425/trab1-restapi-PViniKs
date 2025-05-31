@@ -4,10 +4,13 @@ body {
     margin: 0;
     padding: 20px;
     user-select: none;
+    background: linear-gradient(135deg, #06fba5, #f9770d);
+    background-attachment: fixed;
 }
 
 .container {
     max-width: 400px;
+    min-width: 200px;
     margin: auto;
     background: white;
     padding: 20px;
@@ -38,7 +41,6 @@ select {
 button, input[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #f29e1f;
     color: white;
     border: none;
     border-radius: 10px;
@@ -47,8 +49,28 @@ button, input[type="submit"] {
     text-shadow: #0c7e56 2px 1px 2px;
 }
 
-button:hover {
+.btnYlw {
+    background-color: #f29e1f;
+}
+
+.btnYlw:hover {
     background-color: #8b5606;
+}
+
+.btnRed {
+    background-color: #f92222;
+}
+
+.btnRed:hover {
+    background-color: #aa1111;
+}
+
+.btnPrp {
+    background-color: #aa2af4;
+}
+
+.btnPrp:hover {
+    background-color: #6d189e;
 }
 
 table {
@@ -74,13 +96,6 @@ td.infoAluno {
     word-break: normal;
 }
 
-#delAluno {
-    background-color: #f92222;
-}
-
-#delAluno:hover {
-    background-color: #aa1111;
-}
 
 #doisBotoes {
     display: flex;

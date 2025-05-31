@@ -11,7 +11,7 @@
     <div class="container">
         <h2>Fetch API</h2>
         <hr>
-        <button id="abrirForm">Adicionar Aluno</button>
+        <button id="abrirForm" class="btnYlw">Adicionar Aluno</button>
         <div class="formAddAluno hidden">
             <p>Nome: <input type="text" id="nomeAluno" placeholder="Padmé" required autocomplete="off"></p>
             <p>Apelido: <input type="text" id="apelidoAluno" placeholder="Amidala" required autocomplete="off"></p>
@@ -34,29 +34,13 @@
             <p>Idade: <span id="idadeValue">17</span>
             <input type="range" id="idadeAluno" min="17" max="127" value="17" step="1">
             <div id="doisBotoes">
-                <input type="submit" id="addAluno" class="meioBotao" value="Adicionar">
-                <button id="cancelAluno" class="meioBotao">Cancelar</button>
+                <input type="submit" id="addAluno" class="meioBotao btnYlw" value="Adicionar">
+                <button id="cancelAluno" class="meioBotao btnRed">Cancelar</button>
             </div>
         </div>
         <hr>
-        <button id="verAlunos">Ver Alunos</button>
-        <hr class="" id="hrAlunos">
-        <div id="alunosList" class="">
-            <table>
-                <tr>
-                    <th class="headerTH">Nome</th>
-                    <td id="nomeAluno" class="infoAluno">asd dsa</th>
-                </tr>
-                <tr>
-                    <th class="headerTH">Curso</th>
-                    <td id="cursoAluno" class="infoAluno">dsadadasdasdasdasdasdadadas dasdasdasdadassdassd</th>
-                </tr>
-                <tr>
-                    <th class="headerTH">Ano</th>
-                    <td id="anoAluno" class="infoAluno">1ª ano</th>
-                </tr>
-            </table>
-        <button id="delAluno">Apagar asd</button>
+        <button id="verAlunos" class="btnPrp">Ver Alunos</button>
+        <div id="alunosList"></div>
     </div>
 </body>
 </html>

@@ -10,6 +10,8 @@ const apelidoAluno = document.querySelector("#apelidoAluno");
 const cursoAluno = document.querySelector("#cursoAluno");
 const anoCurricular = document.querySelector("#anoCurricular");
 const semestre = document.querySelector("#semestre");
+const alunosList = document.querySelector("#alunosList");
+const verAlunos = document.querySelector("#verAlunos");
 
 abrirForm.addEventListener("click", function() {
     formAddAluno.classList.remove("hidden");
@@ -77,4 +79,80 @@ addAluno.addEventListener("click", function(e) {
             console.error("Erro ao adicionar aluno:", error);
         });
     }
+});
+
+
+/* ao apertar verAlunos, para cada aluno recebido de localhost:3058/alunos, dentro de alunosList, insira: */
+/*
+<table>
+    <hr>
+    <tr>
+        <th class="headerTH">Nome</th>
+        <td id="nomeAluno" class="infoAluno">${aluno.nome} ${aluno.apelido}</th>
+    </tr>
+    <tr>
+        <th class="headerTH">Curso</th>
+        <td id="cursoAluno" class="infoAluno">${fixCurso(aluno.curso)}</th>
+    </tr>
+    <tr>
+        <th class="headerTH">Ano</th>
+        <td id="anoAluno" class="infoAluno">${fixAno(aluno.ano)}</th>
+        </tr>
+</table>
+<button id="delAluno">Apagar ${aluno.nome}</button>
+            
+*/
+
+verAlunos.addEventListener("click", function() {
+    alunosList.innerHTML = "";
+    fetch("http://localhost:3058/alunos")
+        .then(response => response.json())
+        .then(alunos => {
+            alunos.forEach(aluno => {
+                const alunoDiv = document.createElement("div");
+                alunoDiv.classList.add("aluno");
+
+                alunoDiv.innerHTML = `
+                    <table>
+                        <hr>
+                        <tr>
+                            <th class="headerTH">Nome</th>
+                            <td id="nomeAluno" class="infoAluno">${aluno.nome} ${aluno.apelido}</td>
+                        </tr>
+                        <tr>
+                            <th class="headerTH">Curso</th>
+                            <td id="cursoAluno" class="infoAluno">${(aluno.curso)}</td>
+                        </tr>
+                        <tr>
+                            <th class="headerTH">Ano</th>
+                            <td id="anoAluno" class="infoAluno">${(aluno.anoCurricular)}</td>
+                        </tr>
+                    </table>
+                    <button class="delAluno btnRed" id="${aluno._id}">Apagar ${aluno.nome}</button>
+                `;
+
+                alunosList.appendChild(alunoDiv);
+            });
+
+            // Adiciona o evento de exclusão para cada botão "Apagar"
+            document.querySelectorAll("#delAluno").forEach(button => {
+                button.addEventListener("click", function() {
+                    const id = this.getAttribute("data-id");
+                    fetch(`http://localhost:3058/alunos/${id}`, {
+                        method: "DELETE"
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Aluno deletado:", data);
+                        verAlunos.click(); // Atualiza a lista de alunos
+                    })
+                    .catch(error => {
+                        console.error("Erro ao deletar aluno:", error);
+                    });
+                });
+            });
+        })
+        .catch(error => {
+            console.error("Erro ao buscar alunos:", error);
+        });
 });
