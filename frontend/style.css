@@ -87,6 +87,7 @@ th.headerTH {
     width: 15%;
     font-weight: bold;
     font-variant: small-caps;
+    overflow: hidden;
 }
 td.infoAluno {
     padding: 10px;
