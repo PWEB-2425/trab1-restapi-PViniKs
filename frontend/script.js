@@ -9,17 +9,16 @@ const addAluno = document.querySelector("#addAluno");
 abrirForm.addEventListener("click", function() {
     formAddAluno.classList.remove("hidden");
     abrirForm.classList.add("hidden");
+    for (let i = idades.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [idades[i], idades[j]] = [idades[j], idades[i]];
+    }
+    idadeValor.textContent = idades[0];
 });
-
-for (let i = idades.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [idades[i], idades[j]] = [idades[j], idades[i]];
-}
 
 idadeRange.min = 0;
 idadeRange.max = idades.length - 1;
 idadeRange.value = 0;
-idadeValor.textContent = idades[0];
 
 idadeRange.addEventListener('input', function() {
     idadeValor.textContent = idades[this.value];
