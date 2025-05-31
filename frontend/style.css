@@ -3,6 +3,7 @@ body {
     background-color: #5af6bf;
     margin: 0;
     padding: 20px;
+    user-select: none;
 }
 
 .container {
@@ -48,6 +49,39 @@ button, input[type="submit"] {
 
 button:hover {
     background-color: #8b5606;
+}
+
+table {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+th.headerTH {
+    padding: 10px;
+    border: 2px solid black;
+    width: 15%;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+td.infoAluno {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    width: 85%;
+    text-align: center;
+    word-break: break-word;
+    white-space: normal;
+}
+
+#delAluno {
+    background-color: #f92222;
+}
+
+#delAluno:hover {
+    background-color: #aa1111;
 }
 
 #doisBotoes {

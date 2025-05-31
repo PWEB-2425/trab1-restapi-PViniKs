@@ -13,8 +13,8 @@
         <hr>
         <button id="abrirForm">Adicionar Aluno</button>
         <div class="formAddAluno hidden">
-            <p>Nome: <input type="text" id="nomeAluno" placeholder="Padmé" required></p>
-            <p>Apelido: <input type="text" id="apelidoAluno" placeholder="Amidala" required></p>
+            <p>Nome: <input type="text" id="nomeAluno" placeholder="Padmé" required autocomplete="off"></p>
+            <p>Apelido: <input type="text" id="apelidoAluno" placeholder="Amidala" required autocomplete="off"></p>
             <select id="cursoAluno">
                 <option value="4">Curso de Graduação em Cinema</option>
                 <option value="3">Bacharelado em Sistemas de Informação</option>
@@ -40,8 +40,26 @@
         </div>
         <hr>
         <button id="verAlunos">Ver Alunos</button>
-        <hr>
-        <button id="delAluno">Apagar Aluno</button>
+        <hr class="" id="hrAlunos">
+        <div id="alunosList" class="">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="headerTH">Nome</th>
+                        <td id="nomeAluno" class="infoAluno">asd dsa</th>
+                    </tr>
+                    <tr>
+                        <th class="headerTH">Curso</th>
+                        <td id="cursoAluno" class="infoAluno">dsadadasdasdasdasdasdadadas dasdasdasdadassdassd</th>
+                    </tr>
+                    <tr>
+                        <th class="headerTH">Ano</th>
+                        <td id="anoAluno" class="infoAluno">1ª ano</th>
+                    </tr>
+                </thead>
+                <tbody id="alunosTableBody"></tbody>
+            </table>
+        <button id="delAluno">Apagar asd</button>
     </div>
 </body>
 </html>
