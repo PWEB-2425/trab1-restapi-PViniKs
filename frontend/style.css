@@ -34,7 +34,7 @@ select {
     border: 1px solid #ccc;
 }
 
-button {
+button, input[type="submit"] {
     width: 100%;
     padding: 10px;
     background-color: #f29e1f;

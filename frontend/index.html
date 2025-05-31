@@ -13,8 +13,8 @@
         <hr>
         <button id="abrirForm">Adicionar Aluno</button>
         <div class="formAddAluno hidden">
-            <p>Nome: <input type="text" id="nomeAluno" placeholder="Padmé"></p>
-            <p>Apelido: <input type="text" id="apelidoAluno" placeholder="Amidala"></p>
+            <p>Nome: <input type="text" id="nomeAluno" placeholder="Padmé" required></p>
+            <p>Apelido: <input type="text" id="apelidoAluno" placeholder="Amidala" required></p>
             <select id="cursoAluno">
                 <option value="4">Curso de Graduação em Cinema</option>
                 <option value="3">Bacharelado em Sistemas de Informação</option>
@@ -34,7 +34,7 @@
             <p>Idade: <span id="idadeValue">17</span>
             <input type="range" id="idadeAluno" min="17" max="127" value="17" step="1">
             <div id="doisBotoes">
-                <button id="addAluno" class="meioBotao">Adicionar</button>
+                <input type="submit" id="addAluno" class="meioBotao" value="Adicionar">
                 <button id="cancelAluno" class="meioBotao">Cancelar</button>
             </div>
         </div>
