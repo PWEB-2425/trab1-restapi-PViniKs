@@ -5,7 +5,7 @@ const app = express()
 const port = 3058
 
 const { MongoClient, ObjectId } = require('mongodb')
-const url = 'mongodb+srv://pviniks:HE2e0Yd9D0ZsVBan@pw.1b8agc4.mongodb.net/gestao_alunos'
+const url = 'mongodb+srv://pviniks:HE2e0Yd9D0ZsVBan@pw.1b8agc4.mongodb.net/'
 const client = new MongoClient(url)
 const dbName = 'trab1'
 let alunosCollection
@@ -15,6 +15,7 @@ app.use(cors({ origin: "*" }))
 app.use(express.json())
 console.log('Iniciando o servidor...')
 
+// Conectar MongoDB
 async function conectarMongo() {
     await client.connect()
     const db = client.db(dbName)
@@ -23,6 +24,7 @@ async function conectarMongo() {
     console.log('Conectado ao MongoDB')
 }
 
+// Frontend
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/index.html'))
 })

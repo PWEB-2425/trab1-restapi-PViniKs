@@ -51,8 +51,6 @@ addAluno.addEventListener("click", function(e) {
         return;
     }
 
-    console.log("Idade", idades[idadeRange.value]);
-/*
     if (nome && apelido) {
         const aluno = {
             nome: nome,
@@ -62,7 +60,7 @@ addAluno.addEventListener("click", function(e) {
             idade: idades[idadeRange.value]
         };
 
-        fetch("http://localhost:3000/alunos", {
+        fetch("http://localhost:3058/alunos", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -78,5 +76,5 @@ addAluno.addEventListener("click", function(e) {
         .catch(error => {
             console.error("Erro ao adicionar aluno:", error);
         });
-    }*/
+    }
 });
