@@ -17,7 +17,7 @@
       "id": "8a15"
     },
     {
-      "nome": "Paulo",
+      "nome": "Paulo Vinícius",
       "apelido": "Kuss",
       "curso": 3,
       "anoCurricular": 3,
@@ -25,12 +25,12 @@
       "id": "3058"
     },
     {
-      "id": "4104",
       "nome": "Isadora",
-      "apelido": "Burigo",
+      "apelido": "Sopran Burigo",
       "curso": 4,
       "anoCurricular": 1,
-      "idade": 17
+      "idade": 17,
+      "id": "4104"
     }
   ],
   "cursos": [
