@@ -71,9 +71,7 @@ td.infoAluno {
     box-sizing: border-box;
     border: 2px solid black;
     width: 85%;
-    text-align: center;
-    word-break: break-word;
-    white-space: normal;
+    word-break: normal;
 }
 
 #delAluno {
