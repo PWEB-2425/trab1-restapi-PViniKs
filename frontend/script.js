@@ -20,7 +20,6 @@ abrirForm.addEventListener("click", function() {
     apelidoAluno.value = "";
     cursoAluno.value = "4";
     anoCurricular.value = "1";
-    semestre.value = "1";
     for (let i = idades.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [idades[i], idades[j]] = [idades[j], idades[i]];
