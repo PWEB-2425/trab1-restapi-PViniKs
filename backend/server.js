@@ -64,7 +64,7 @@ app.post('/alunos', async (req, res) => {
     try {
         const aluno = req.body
         const result = await alunosCollection.insertOne(aluno)
-        res.status(201).json({ _id: result.insertedId, ...aluno })
+        res.status(201).json({ _id: result.insertedId, ...aluno }, { message: 'Aluno adicionado com sucesso' })
     } catch (error) {
         res.status(500).json({ error: 'Erro ao adicionar aluno' })
     }

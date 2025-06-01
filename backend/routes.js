@@ -62,7 +62,9 @@
  *                 example: 18
  *     responses:
  *       201:
- *         description: Aluno criado
+ *         description: Aluno adicionado com sucesso
+ *       500:
+ *         description: Erro ao adicionar aluno
  */
 
 /**
@@ -92,6 +94,8 @@
  *         description: Aluno atualizado com sucesso
  *       404:
  *         description: Aluno não encontrado
+ *       500:
+ *         description: Erro ao atualizar aluno
  */
 
 /**
@@ -111,4 +115,6 @@
  *         description: Aluno deletado com sucesso
  *       404:
  *         description: Aluno não encontrado
+ *       500:
+ *         description: Erro ao deletar aluno
  */
