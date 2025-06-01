@@ -23,7 +23,7 @@ const swaggerSpec = swaggerDoc({
       description: "API para gerenciar alunos",
     },
   },
-  apis: ["./routes.js"],
+  apis: ["./docs/routes.js"],
 });
 
 app.use(cors({ origin: "*" }));
