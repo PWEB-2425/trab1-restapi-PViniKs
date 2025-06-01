@@ -73,6 +73,7 @@ addAluno.addEventListener("click", function(e) {
             console.log("Aluno adicionado:", data);
             formAddAluno.classList.add("hidden");
             abrirForm.classList.remove("hidden");
+            verAlunos.click();
         })
         .catch(error => {
             console.error("Erro ao adicionar aluno:", error);
