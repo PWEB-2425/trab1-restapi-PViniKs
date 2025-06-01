@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 20px;
     user-select: none;
-    background: linear-gradient(135deg, #06fba5, #f9770d);
+    background: linear-gradient(to bottom right, #06fba5, #f9770d);
     background-attachment: fixed;
 }
 
@@ -22,7 +22,7 @@ h2 {
     text-align: center;
 }
 
-input[type="text"], input[type="range"] {
+input[type="text"], input[type="range"], input[type="number"] {
     width: calc(100% - 22px);
     padding: 10px;
     margin-bottom: 10px;
@@ -84,19 +84,19 @@ table {
 th.headerTH {
     padding: 10px;
     border: 2px solid black;
-    width: 15%;
+    width: 20%;
     font-weight: bold;
     font-variant: small-caps;
     overflow: hidden;
 }
+
 td.infoAluno {
     padding: 10px;
     box-sizing: border-box;
     border: 2px solid black;
-    width: 85%;
+    width: 80%;
     word-break: normal;
 }
-
 
 #doisBotoes {
     display: flex;

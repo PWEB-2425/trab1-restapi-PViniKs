@@ -95,7 +95,15 @@ verAlunos.addEventListener("click", function() {
                         <hr>
                         <tr>
                             <th class="headerTH">Nome</th>
-                            <td id="nomeAluno" class="infoAluno">${aluno.nome} ${aluno.apelido}</td>
+                            <td id="nomeAluno" class="infoAluno">${aluno.nome}</td>
+                        </tr>
+                        <tr>
+                            <th class="headerTH">Apelido</th>
+                            <td id="apelidoAluno" class="infoAluno">${aluno.apelido}</td>
+                        </tr>
+                        <tr>
+                            <th class="headerTH">Idade</th>
+                            <td id="idadeAluno" class="infoAluno">${fixIdade(aluno.idade)}</td>
                         </tr>
                         <tr>
                             <th class="headerTH">Curso</th>
@@ -106,31 +114,109 @@ verAlunos.addEventListener("click", function() {
                             <td id="anoAluno" class="infoAluno">${fixAno(aluno.anoCurricular)}</td>
                         </tr>
                     </table>
-                    <button class="delAluno btnRed" id="${aluno._id}">Apagar ${aluno.nome}</button>
+                    <div id="doisBotoes">
+                        <button class="editAluno meioBotao btnYlw" id="${aluno._id}">Editar ${aluno.nome}</button>
+                        <button class="delAluno meioBotao btnRed" id="${aluno._id}">Apagar ${aluno.nome}</button>
+                    </div>
                 `;
 
                 alunosList.appendChild(alunoDiv);
-            });
 
-            const delAlunos = document.querySelectorAll(".delAluno");
-            delAlunos.forEach(button => {
-                button.addEventListener("click", function() {
-                    if (!confirm("Tem certeza que deseja apagar este aluno? Esta ação não pode ser desfeita.")) {
-                        return;
-                    }
-                    const id = this.id;
-                    fetch(`http://localhost:3058/alunos/${id}`, {
-                        method: "DELETE"
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
+                alunoDiv.querySelector(".editAluno").addEventListener("click", function() {
+                    const original = {
+                        nome: aluno.nome,
+                        apelido: aluno.apelido,
+                        curso: aluno.curso,
+                        anoCurricular: aluno.anoCurricular,
+                        idade: aluno.idade
+                    };
+                    console.log("Editando aluno:", original);
+                    alunoDiv.querySelector("#nomeAluno").innerHTML = `<input type="text" id="nomeAlunoInput" value="${aluno.nome}" required autocomplete="off">`;
+                    alunoDiv.querySelector("#apelidoAluno").innerHTML = `<input type="text" id="apelidoAlunoInput" value="${aluno.apelido}" required autocomplete="off">`;
+                    alunoDiv.querySelector("#idadeAluno").innerHTML = `<input type="number" id="idadeAlunoInput" min="16" max="128" value="${aluno.idade}">`;
+
+                    alunoDiv.querySelector("#cursoAluno").innerHTML = `
+                        <select id="cursoAlunoInput">
+                            <option value="1" ${aluno.curso === "1" ? "selected" : ""}>Engenharia da Computação Gráfica e Multimédia</option>
+                            <option value="2" ${aluno.curso === "2" ? "selected" : ""}>Engenharia de Redes e Sistemas de Computadores</option>
+                            <option value="3" ${aluno.curso === "3" ? "selected" : ""}>Bacharelado em Sistemas de Informação</option>
+                            <option value="4" ${aluno.curso === "4" ? "selected" : ""}>Curso de Graduação em Cinema</option>
+                        </select>
+                    `;
+
+                    alunoDiv.querySelector("#anoAluno").innerHTML = `
+                        <select id="anoCurricularInput">
+                            <option value="1" ${aluno.anoCurricular === "1" ? "selected" : ""}>1º Ano</option>
+                            <option value="2" ${aluno.anoCurricular === "2" ? "selected" : ""}>2º Ano</option>
+                            <option value="3" ${aluno.anoCurricular === "3" ? "selected" : ""}>3º Ano</option>
+                            <option value="4" ${aluno.anoCurricular === "4" ? "selected" : ""}>4º Ano</option>
+                        </select>
+                    `;
+
+                    const btns = alunoDiv.querySelector("#doisBotoes");
+                    btns.innerHTML = `
+                        <button class="confirmEdit meioBotao btnPrp" id="${aluno._id}">Salvar</button>
+                        <button class="cancelEdit meioBotao btnRed" id="${aluno._id}">Cancelar</button>
+                    `;
+
+                    btns.querySelector(".confirmEdit").addEventListener("click", function() {
+                        const nome = alunoDiv.querySelector("#nomeAlunoInput").value.trim();
+                        const apelido = alunoDiv.querySelector("#apelidoAlunoInput").value.trim();
+                        const idade = parseInt(alunoDiv.querySelector("#idadeAlunoInput").value, 10);
+                        const curso = alunoDiv.querySelector("#cursoAlunoInput").value;
+                        const ano = alunoDiv.querySelector("#anoCurricularInput").value;
+                        console.log(nome, apelido);
+                        if (!nome || !apelido) {
+                            alert("Por favor, preencha todos os campos obrigatoriamente.");
+                            return;
+                        }
+
+                        fetch(`http://localhost:3058/alunos/${aluno._id}`, {
+                            method: "PUT",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                nome: nome,
+                                apelido: apelido,
+                                curso: curso,
+                                anoCurricular: ano,
+                                idade: idade
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(() => {
+                            verAlunos.click();
+                        })
+                        .catch(error => {
+                            console.error("Erro ao editar aluno:", error);
+                        });
+                    });
+
+                    btns.querySelector(".cancelEdit").addEventListener("click", function() {
                         verAlunos.click();
-                    })
-                    .catch(error => {
-                        console.error("Erro ao deletar aluno:", error);
                     });
                 });
+
+                /*delAlunos.forEach(button => {
+                    button.addEventListener("click", function() {
+                        if (!confirm("Tem certeza que deseja apagar este aluno? Esta ação não pode ser desfeita.")) {
+                            return;
+                        }
+                        const id = this.id;
+                        fetch(`http://localhost:3058/alunos/${id}`, {
+                            method: "DELETE"
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            verAlunos.click();
+                        })
+                        .catch(error => {
+                            console.error("Erro ao deletar aluno:", error);
+                        });
+                    });
+                });*/
             });
         })
         .catch(error => {
@@ -166,4 +252,8 @@ function fixAno(ano) {
         default:
             return ano;
     }
+}
+
+function fixIdade(idade) {
+    return idade + " anos";
 }
