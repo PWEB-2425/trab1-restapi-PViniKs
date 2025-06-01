@@ -53,10 +53,30 @@ app.post('/alunos', async (req, res) => {
     }
 })
 
-app.delete('/alunos/:id', async (req, res) => {
+app.put('/alunos/update/:id', async (req, res) => {
+    const id = req.params.id
+    const alunoAtualizado = req.body
+    try {
+        const result = await alunosCollection.updateOne(
+            { _id: new ObjectId(id) },
+            { $set: alunoAtualizado }
+        )
+        if (result.matchedCount === 1) {
+            res.status(200).json({ message: 'Aluno atualizado com sucesso' })
+        } else {
+            res.status(404).json({ error: 'Aluno não encontrado' })
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao atualizar aluno' })
+    }
+})
+
+app.delete('/alunos/delete/:id', async (req, res) => {
     const id = req.params.id
     try {
-        const result = await alunosCollection.deleteOne({ _id: new ObjectId(id) })
+        const result = await alunosCollection.deleteOne(
+            { _id: new ObjectId(id) }
+        )
         if (result.deletedCount === 1) {
             res.status(200).json({ message: 'Aluno deletado com sucesso' })
         } else {

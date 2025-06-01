@@ -165,13 +165,13 @@ verAlunos.addEventListener("click", function() {
                         const idade = parseInt(alunoDiv.querySelector("#idadeAlunoInput").value, 10);
                         const curso = alunoDiv.querySelector("#cursoAlunoInput").value;
                         const ano = alunoDiv.querySelector("#anoCurricularInput").value;
-                        console.log(nome, apelido);
+
                         if (!nome || !apelido) {
                             alert("Por favor, preencha todos os campos obrigatoriamente.");
                             return;
                         }
 
-                        fetch(`http://localhost:3058/alunos/${aluno._id}`, {
+                        fetch(`http://localhost:3058/alunos/update/${aluno._id}`, {
                             method: "PUT",
                             headers: {
                                 "Content-Type": "application/json"
@@ -198,25 +198,23 @@ verAlunos.addEventListener("click", function() {
                     });
                 });
 
-                /*delAlunos.forEach(button => {
-                    button.addEventListener("click", function() {
-                        if (!confirm("Tem certeza que deseja apagar este aluno? Esta ação não pode ser desfeita.")) {
-                            return;
-                        }
-                        const id = this.id;
-                        fetch(`http://localhost:3058/alunos/${id}`, {
-                            method: "DELETE"
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log(data);
-                            verAlunos.click();
-                        })
-                        .catch(error => {
-                            console.error("Erro ao deletar aluno:", error);
-                        });
+                alunoDiv.querySelector(".delAluno").addEventListener("click", function() {
+                    if (!confirm("Tem certeza que deseja apagar este aluno? Esta ação não pode ser desfeita.")) {
+                        return;
+                    }
+                    const id = this.id;
+                    fetch(`http://localhost:3058/alunos/delete/${id}`, {
+                        method: "DELETE"
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        verAlunos.click();
+                    })
+                    .catch(error => {
+                        console.error("Erro ao deletar aluno:", error);
                     });
-                });*/
+                });
             });
         })
         .catch(error => {
