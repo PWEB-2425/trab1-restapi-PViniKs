@@ -11,8 +11,25 @@ const client = new MongoClient(url)
 const dbName = 'trab1'
 let alunosCollection
 
+const swaggerUi = require('swagger-ui-express')
+const swaggerDoc = require('swagger-jsdoc')
+
+const swaggerSpec = swaggerDoc({
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'API de Alunos',
+            version: '1.0.0',
+            description: 'API para gerenciar alunos'
+        },
+    },
+    apis: ['./routes.js'],
+})
+
 app.use(cors({ origin: "*" }))
 app.use(express.json())
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+
 console.log('Iniciando o servidor...')
 
 // Conectar MongoDB
