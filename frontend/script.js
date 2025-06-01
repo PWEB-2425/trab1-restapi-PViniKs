@@ -1,3 +1,4 @@
+// constantes para os elementos
 const idadeRange = document.querySelector("#idadeAluno");
 const idadeValor = document.querySelector("#idadeValue");
 const abrirForm = document.querySelector("#abrirForm");
@@ -13,6 +14,7 @@ const semestre = document.querySelector("#semestre");
 const alunosList = document.querySelector("#alunosList");
 const verAlunos = document.querySelector("#verAlunos");
 
+// botão para abrir o form de adição de aluno
 abrirForm.addEventListener("click", function() {
     formAddAluno.classList.remove("hidden");
     abrirForm.classList.add("hidden");
@@ -28,19 +30,21 @@ abrirForm.addEventListener("click", function() {
     idadeRange.value = 0;
 });
 
+// range de idades (16 a 128 anos)
 idadeRange.min = 0;
 idadeRange.max = idades.length - 1;
 idadeRange.value = 0;
-
 idadeRange.addEventListener('input', function() {
     idadeValor.textContent = idades[this.value];
 });
 
+// botão para cancelar a adição de aluno
 cancelAluno.addEventListener("click", function() {
     formAddAluno.classList.add("hidden");
     abrirForm.classList.remove("hidden");
 });
 
+// botão para adicionar aluno
 addAluno.addEventListener("click", function(e) {
     e.preventDefault();
 
@@ -61,6 +65,7 @@ addAluno.addEventListener("click", function(e) {
             idade: idades[idadeRange.value]
         };
 
+        // solicita POST para adicionar aluno
         fetch("http://localhost:3058/alunos", {
             method: "POST",
             headers: {
@@ -81,11 +86,15 @@ addAluno.addEventListener("click", function(e) {
     }
 });
 
+// botão para ver a lista de alunos
 verAlunos.addEventListener("click", function() {
     alunosList.innerHTML = "";
+
+    // solicita GET para buscar alunos
     fetch("http://localhost:3058/alunos")
         .then(response => response.json())
         .then(alunos => {
+            // para cada aluno cria um elemento div com as informações
             alunos.forEach(aluno => {
                 const alunoDiv = document.createElement("div");
                 alunoDiv.classList.add("aluno");
@@ -122,6 +131,7 @@ verAlunos.addEventListener("click", function() {
 
                 alunosList.appendChild(alunoDiv);
 
+                // botão para editar aluno
                 alunoDiv.querySelector(".editAluno").addEventListener("click", function() {
                     const original = {
                         nome: aluno.nome,
@@ -171,6 +181,7 @@ verAlunos.addEventListener("click", function() {
                             return;
                         }
 
+                        // solicita PUT para editar aluno
                         fetch(`http://localhost:3058/alunos/update/${aluno._id}`, {
                             method: "PUT",
                             headers: {
@@ -193,16 +204,20 @@ verAlunos.addEventListener("click", function() {
                         });
                     });
 
+                    // botão para cancelar edição
                     btns.querySelector(".cancelEdit").addEventListener("click", function() {
                         verAlunos.click();
                     });
                 });
 
+                // botão para deletar aluno
                 alunoDiv.querySelector(".delAluno").addEventListener("click", function() {
                     if (!confirm("Tem certeza que deseja apagar este aluno? Esta ação não pode ser desfeita.")) {
                         return;
                     }
                     const id = this.id;
+
+                    // solicita DELETE para deletar aluno
                     fetch(`http://localhost:3058/alunos/delete/${id}`, {
                         method: "DELETE"
                     })
@@ -222,6 +237,7 @@ verAlunos.addEventListener("click", function() {
         });
 });
 
+// função para corrigir a exibição do curso
 function fixCurso(curso) {
     switch (curso) {
         case "1":
@@ -237,6 +253,7 @@ function fixCurso(curso) {
     }
 }
 
+// função para corrigir a exibição do ano curricular
 function fixAno(ano) {
     switch (ano) {
         case "1":
@@ -252,6 +269,7 @@ function fixAno(ano) {
     }
 }
 
+// função para corrigir a exibição da idade
 function fixIdade(idade) {
     return idade + " anos";
 }
