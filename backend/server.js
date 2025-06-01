@@ -32,7 +32,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 console.log('Iniciando o servidor...')
 
-// Conectar MongoDB
+// conecta MongoDB
 async function conectarMongo() {
     await client.connect()
     const db = client.db(dbName)
@@ -51,6 +51,7 @@ app.get('/script.js', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/script.js'))
 })
 
+// rota GET
 app.get('/alunos', async (req, res) => {
     try {
         const alunos = await alunosCollection.find().toArray()
@@ -60,6 +61,7 @@ app.get('/alunos', async (req, res) => {
     }
 })
 
+// rota POST
 app.post('/alunos', async (req, res) => {
     try {
         const aluno = req.body
@@ -70,6 +72,7 @@ app.post('/alunos', async (req, res) => {
     }
 })
 
+// rota PUT
 app.put('/alunos/update/:id', async (req, res) => {
     const id = req.params.id
     const alunoAtualizado = req.body
@@ -88,6 +91,7 @@ app.put('/alunos/update/:id', async (req, res) => {
     }
 })
 
+// rota DELETE
 app.delete('/alunos/delete/:id', async (req, res) => {
     const id = req.params.id
     try {
@@ -104,6 +108,7 @@ app.delete('/alunos/delete/:id', async (req, res) => {
     }
 })
 
+// inicializa o servidor
 conectarMongo().then(() => {
     app.listen(port, () => {
         console.log(`Servidor rodando em http://localhost:${port}`)
