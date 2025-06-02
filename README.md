@@ -5,8 +5,16 @@
 - [Visão Geral](#Visão-Geral)
 - [Demonstração Online](#Demonstração-Online)
 - [Estrutura do Projeto](#Estrutura-do-Projeto)
-- [Estruturação da Base de Dados](#1.-Estruturação-da-Base-de-Dados)
-- [API Simulada com JSON-Server](2.-API-Simulada-com-JSON-Server)
+- [Estruturação da Base de Dados](#1-Estruturação-da-Base-de-Dados)
+- [API Simulada com JSON-Server](2-API-Simulada-com-JSON-Server)
+- [Interface Web (Front-end)](#Interface-Web-Front-end)
+- [API RESTful Real (Node.js + Express + MongoDB Atlas)](#4-api-restful-real-nodejs--express--mongodb-atlas)
+- [Deploy](#Deploy)
+- [Documentação da API (Swagger)](#Documentação-da-API-Swagger)
+- [Como Rodar Localmente](#Como-Rodar-Localmente)
+- [Testes](#Testes)
+- [Observações](#Observações)
+- [Créditos](#Créditos)
 
 ## Visão Geral
 
