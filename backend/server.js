@@ -22,6 +22,12 @@ const swaggerSpec = swaggerDoc({
       version: "1.0.0",
       description: "API para gerenciar alunos",
     },
+    tags: [
+      {
+        name: "Rotas",
+        description: "Rotas para gerenciamento de alunos",
+      },
+    ],
   },
   apis: ["./docs/routes.js"],
 });

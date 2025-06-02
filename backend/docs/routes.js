@@ -3,6 +3,7 @@
  * /alunos:
  *   get:
  *     summary: Lista todos os alunos
+ *     tags: [Rotas]
  *     responses:
  *       200:
  *         description: Lista de alunos
@@ -38,6 +39,7 @@
  * /alunos:
  *   post:
  *     summary: Adiciona um novo aluno
+ *     tags: [Rotas]
  *     requestBody:
  *       required: true
  *       content:
@@ -72,6 +74,7 @@
  * /alunos/update/{id}:
  *   put:
  *     summary: Atualiza um aluno pelo ID
+ *     tags: [Rotas]
  *     parameters:
  *       - in: path
  *         name: id
@@ -103,6 +106,7 @@
  * /alunos/delete/{id}:
  *   delete:
  *     summary: Remove um aluno pelo ID
+ *     tags: [Rotas]
  *     parameters:
  *       - in: path
  *         name: id
