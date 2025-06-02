@@ -8,7 +8,7 @@ Este projeto é o desenvolvimento de uma aplicação web com front-end e back-en
 
 ## Demonstração Online
 
-- **Front-end (Vercel):** [https://seu-frontend.vercel.app](https://seu-frontend.vercel.app)
+- **Front-end (Vercel):** [https://trab1-pw-frontend.vercel.app](https://trab1-pw-frontend.vercel.app)
 - **API RESTful (Render):** [https://trab1-pw-backend.onrender.com/alunos/](https://trab1-pw-backend.onrender.com/alunos/)
 - **Documentação Swagger:** [https://trab1-pw-backend.onrender.com/api-docs/](https://trab1-pw-backend.onrender.com/api-docs/)
 
