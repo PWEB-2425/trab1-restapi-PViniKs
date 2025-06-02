@@ -1,6 +1,12 @@
 # Trabalho Prático #1 — Consumo e Implementação de APIs RESTful
 
-- [Visão Geral](#visão-geral)
+## Sumário
+
+- [Visão Geral](#Visão-Geral)
+- [Demonstração Online](#Demonstração-Online)
+- [Estrutura do Projeto](#Estrutura-do-Projeto)
+- [Estruturação da Base de Dados](#1.-Estruturação-da-Base-de-Dados)
+- [API Simulada com JSON-Server](2.-API-Simulada-com-JSON-Server)
 
 ## Visão Geral
 
