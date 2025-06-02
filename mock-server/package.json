@@ -4,7 +4,7 @@
   "description": "API simulada com JSON-server.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx json-server -p 3030 ../mock-data/bd.json"
   },
   "author": "Pviniks <contato@pviniks.com> (https://pviniks.com/)",
   "license": "MIT",

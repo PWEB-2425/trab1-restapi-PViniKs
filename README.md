@@ -8,7 +8,7 @@ Este projeto é o desenvolvimento de uma aplicação web com front-end e back-en
 
 ## Demonstração Online
 
-- **Front-end (Vercel):** [https://trab1-pw-frontend.vercel.app](https://trab1-pw-frontend.vercel.app)
+- **Front-end (Vercel):** [https://trab1-pw-frontend.vercel.app/](https://trab1-pw-frontend.vercel.app/)
 - **API RESTful (Render):** [https://trab1-pw-backend.onrender.com/alunos/](https://trab1-pw-backend.onrender.com/alunos/)
 - **Documentação Swagger:** [https://trab1-pw-backend.onrender.com/api-docs/](https://trab1-pw-backend.onrender.com/api-docs/)
 
@@ -61,7 +61,7 @@ trab1-restapi-PViniKs/
 
 ## 3. Interface Web (Front-end)
 
-- Localizada em [`frontend/`](frontend/).
+- Localizada em [`frontend/`](frontend/)
 - Página HTML: [`frontend/index.html`](frontend/index.html)
 - Estilos: [`frontend/style.css`](frontend/style.css)
 - Scripts: [`frontend/script.js`](frontend/script.js)
@@ -76,10 +76,10 @@ trab1-restapi-PViniKs/
 
 ## 4. API RESTful Real (Node.js + Express + MongoDB Atlas)
 
-- Código-fonte em [`backend/`](backend/).
+- Código-fonte em [`backend/`](backend/)
 - Principais arquivos:
   - [`backend/server.js`](backend/server.js): Implementação dos endpoints RESTful.
-  - [`backend/routes.js`](backend/routes.js): Documentação Swagger dos endpoints.
+  - [`backend/docs/routes.js`](backend/docs/routes.js): Documentação Swagger dos endpoints.
 - Endpoints implementados:
   - `GET /alunos` — Lista todos os alunos
   - `POST /alunos` — Adiciona um novo aluno
@@ -101,7 +101,7 @@ trab1-restapi-PViniKs/
 
 - Documentação dos endpoints disponível em `/api-docs` na API real.
 - Arquivo de configuração Swagger: [`backend/routes.js`](backend/routes.js)
-- Acesse: [https://sua-api.onrender.com/api-docs](https://sua-api.onrender.com/api-docs)
+- Acesse: [https://trab1-pw-backend.onrender.com/api-docs/](https://trab1-pw-backend.onrender.com/api-docs/)
 
 ---
 
@@ -110,16 +110,16 @@ trab1-restapi-PViniKs/
 ### 1. Clonar o repositório
 
 ```sh
-git clone https://github.com/seu-usuario/trab1-restapi-PViniKs.git
+git clone https://github.com/PWEB-2425/trab1-restapi-PViniKs.git
 cd trab1-restapi-PViniKs
 ```
 
-### 2. Rodar o Mock Server
+### 2. Testar o Mock Server
 
 ```sh
 cd mock-server
 npm install
-npx json-server -p 3030 ../mock-data/bd.json
+npm start
 ```
 
 ### 3. Rodar o Back-end Real
@@ -132,28 +132,28 @@ npm start
 
 ### 4. Rodar o Front-end
 
-Abra [`frontend/index.html`](frontend/index.html) no navegador ou sirva com um servidor estático.
+Abra [`frontend/index.html`](frontend/index.html) no navegador ou sirva com um servidor estático (ex.: [`http://localhost:3000/`](http://localhost:3000/)).
 
 ---
 
 ## Testes
 
 - Coleção Postman disponível em [`tests/postman-collection.json`](tests/postman-collection.json).
-- Testa todos os endpoints principais da API simulada.
+- Teste realizado de todos os endpoints principais da API simulada.
 
 ---
 
 ## Observações
 
 - O projeto segue a estrutura RESTful.
-- O front-end pode ser facilmente adaptado para consumir tanto a API simulada quanto a API real.
+- O front-end consome corretamente a API real, mas também pode ser adaptado para consumir a API simulada.
 - Documentação Swagger facilita o entendimento e uso da API.
 
 ---
 
 ## Créditos
 
-- Autor: Paulo Vinícius Kuss ([pviniks.com](https://pviniks.com/))
-- Projeto desenvolvido para a disciplina de Programação Web — IPVC
+- Autor: Paulo Vinícius Kuss ([pviniks@gmail.com](mailto:pviniks@gmail.com))
+- Projeto desenvolvido para a disciplina de Programação Web
 
 ---
