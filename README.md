@@ -16,6 +16,8 @@
 - [Observações](#Observações)
 - [Créditos](#Créditos)
 
+---
+
 ## Visão Geral
 
 Este projeto é o desenvolvimento de uma aplicação web com front-end e back-end separados, incluindo testes, deploy e documentação. O objetivo foi consolidar conhecimentos de desenvolvimento web, especialmente na criação, consumo e implementação de APIs RESTful utilizando Node.js, Express, MongoDB, JSON-Server, Fetch API e Swagger.
