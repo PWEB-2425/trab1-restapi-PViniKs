@@ -150,7 +150,7 @@ npm start
 
 ### 4. Rodar o Front-end
 
-Abra [`frontend/index.html`](frontend/index.html) no navegador ou sirva com um servidor estático (ex.: [`http://localhost:3000/`](http://localhost:3000/)).
+Abra [`frontend/index.html`](frontend/index.html) no navegador ou por meio de um servidor local (ex.: [`http://localhost:3058/`](http://localhost:3058/)).
 
 ---
 
