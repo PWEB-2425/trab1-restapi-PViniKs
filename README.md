@@ -36,15 +36,15 @@ Este projeto é o desenvolvimento de uma aplicação web com front-end e back-en
 
 ```
 trab1-restapi-PViniKs/
-│
-├── .github/          # Arquivos essenciais do Github
-├── backend/          # API RESTful com Node.js + MongoDB
-├── frontend/         # Interface web (HTML/CSS/JS)
-├── mock-data/        # Base de dados JSON
-├── mock-server/      # API simulada com JSON-server
-├── tests/            # Coleção de testes Postman
-├── .gitignore        # Arquivo para indicar ao git o que ignorar
-└── README.md         # Este arquivo
+  │
+  ├── .github/         # GitHub Classroom Feedback
+  ├── backend/         # API RESTful com Node.js + MongoDB
+  ├── frontend/        # Interface web (HTML/CSS/JS)
+  ├── mock-data/       # Base de dados JSON
+  ├── mock-server/     # API simulada com JSON-server
+  ├── tests/           # Coleção de testes Postman
+  ├── .gitignore       # Arquivo para indicar ao git o que ignorar
+  └── README.md        # Este arquivo
 ```
 
 ---
