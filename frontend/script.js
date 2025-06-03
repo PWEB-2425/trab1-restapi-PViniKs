@@ -1,11 +1,11 @@
 // constantes para os elementos
-const idadeRange = document.querySelector("#idadeAluno");
-const idadeValor = document.querySelector("#idadeValue");
 const abrirForm = document.querySelector("#abrirForm");
 const formAddAluno = document.querySelector(".formAddAluno");
-const idades = Array.from({ length: 128 - 16 + 1 }, (_, i) => i + 16);
 const cancelAluno = document.querySelector("#cancelAluno");
 const addAluno = document.querySelector("#addAluno");
+const idadeRange = document.querySelector("#idadeAluno");
+const idadeValor = document.querySelector("#idadeValue");
+const idades = Array.from({ length: 128 - 16 + 1 }, (_, i) => i + 16);
 const nomeAluno = document.querySelector("#nomeAluno");
 const apelidoAluno = document.querySelector("#apelidoAluno");
 const cursoAluno = document.querySelector("#cursoAluno");
@@ -22,6 +22,9 @@ abrirForm.addEventListener("click", function () {
   apelidoAluno.value = "";
   cursoAluno.value = "4";
   anoCurricular.value = "1";
+
+  formAddCursos(getCursos());
+
   for (let i = idades.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [idades[i], idades[j]] = [idades[j], idades[i]];
@@ -29,6 +32,19 @@ abrirForm.addEventListener("click", function () {
   idadeValor.textContent = idades[0];
   idadeRange.value = 0;
 });
+
+// função para pegar os cursos pelo endpoint
+function getCursos() {
+  return fetch("http://localhost:3058/cursos")
+    .then((response) => response.json())
+    .then((cursos) => {
+      return cursos;
+    })
+    .catch((error) => {
+      console.error("Erro ao buscar cursos:", error);
+      return [];
+    });
+}
 
 // range de idades (16 a 128 anos)
 idadeRange.min = 0;

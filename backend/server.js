@@ -10,6 +10,7 @@ const url = "mongodb+srv://pviniks:HE2e0Yd9D0ZsVBan@pw.1b8agc4.mongodb.net/";
 const client = new MongoClient(url);
 const dbName = "trab1";
 let alunosCollection;
+let cursosCollection;
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerDoc = require("swagger-jsdoc");
@@ -24,8 +25,12 @@ const swaggerSpec = swaggerDoc({
     },
     tags: [
       {
-        name: "Rotas",
+        name: "Rotas Alunos",
         description: "Rotas para gerenciamento de alunos",
+      },
+      {
+        name: "Rotas Cursos",
+        description: "Rotas para gerenciamento de cursos",
       },
     ],
   },
@@ -43,6 +48,7 @@ async function conectarMongo() {
   await client.connect();
   const db = client.db(dbName);
   alunosCollection = db.collection("alunos");
+  cursosCollection = db.collection("cursos");
   console.log("Conectado ao MongoDB");
 }
 
@@ -114,6 +120,80 @@ app.delete("/alunos/delete/:id", async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ error: "Erro ao deletar aluno" });
+  }
+});
+
+// rota GET para cursos
+app.get("/cursos", async (req, res) => {
+  try {
+    const alunos = await cursosCollection.find().toArray();
+    res.json(alunos);
+  } catch (error) {
+    res.status(500).json({ error: "Erro ao buscar alunos" });
+  }
+});
+
+// rota POST para cursos
+app.post("/cursos", async (req, res) => {
+  try {
+    const curso = req.body;
+
+    // verifica se já existe nomeDoCurso
+    const nomeExistente = await cursosCollection.findOne({ nomeDoCurso: curso.nomeDoCurso });
+    if (nomeExistente) {
+      return res.status(409).json({ error: "Já existe um curso com esse nome" });
+    }
+
+    // verifica se já existe id
+    if (curso.id) {
+      const idExistente = await cursosCollection.findOne({ id: curso.id });
+      if (idExistente) {
+        return res.status(409).json({ error: "Já existe um curso com esse id" });
+      }
+    }
+
+    const result = await cursosCollection.insertOne(curso);
+    res
+      .status(201)
+      .json(
+        { _id: result.insertedId, ...curso, message: "Curso adicionado com sucesso" }
+      );
+  } catch (error) {
+    res.status(500).json({ error: "Erro ao adicionar curso" });
+  }
+});
+
+// rota PUT para cursos
+app.put("/cursos/update/:id", async (req, res) => {
+  const id = req.params.id;
+  const cursoAtualizado = req.body;
+  try {
+    const result = await cursosCollection.updateOne(
+      { _id: new ObjectId(id) },
+      { $set: cursoAtualizado }
+    );
+    if (result.matchedCount === 1) {
+      res.status(200).json({ message: "Curso atualizado com sucesso" });
+    } else {
+      res.status(404).json({ error: "Curso não encontrado" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Erro ao atualizar curso" });
+  }
+});
+
+// rota DELETE para cursos
+app.delete("/cursos/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const result = await cursosCollection.deleteOne({ _id: new ObjectId(id) });
+    if (result.deletedCount === 1) {
+      res.status(200).json({ message: "Curso deletado com sucesso" });
+    } else {
+      res.status(404).json({ error: "Curso não encontrado" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Erro ao deletar curso" });
   }
 });
 
