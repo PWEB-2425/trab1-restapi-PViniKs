@@ -1,1 +1,47 @@
-<!-- Página CRUD de Alunos -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trabalho PW</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Fetch API</h2>
+      <hr />
+      <button id="abrirForm" class="btnYlw">Adicionar Aluno</button>
+      <div class="formAddAluno hidden">
+        <p>
+          Nome:
+          <input type="text" id="nomeAluno" placeholder="Padmé" required autocomplete="off"/>
+        </p>
+        <p>
+          Apelido:
+          <input type="text" id="apelidoAluno" placeholder="Amidala" required autocomplete="off"/>
+        </p>
+        <select id="cursoAluno">
+          <option value="42">Resposta para a Vida, o Universo e Tudo Mais</option>
+        </select>
+        <select id="anoCurricular">
+          <option value="1">1º ano</option>
+          <option value="2">2º ano</option>
+          <option value="3">3º ano</option>
+          <option value="4">4º ano</option>
+        </select>
+        <p>
+          Idade: <span id="idadeValue">16</span>
+          <input type="range" id="idadeAluno" min="16" max="128" value="16" step="1"/>
+        </p>
+        <div id="doisBotoes">
+          <input type="submit" id="addAluno" class="meioBotao btnYlw" value="Adicionar"/>
+          <button id="cancelAluno" class="meioBotao btnRed">Cancelar</button>
+        </div>
+      </div>
+      <hr />
+      <button id="verAlunos" class="btnPrp">Ver Alunos</button>
+      <div id="alunosList"></div>
+    </div>
+  </body>
+</html>
