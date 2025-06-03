@@ -135,8 +135,13 @@ app.get("/cursos", async (req, res) => {
 
 // rota POST para cursos
 app.post("/cursos", async (req, res) => {
+  // precisa, obrigatoriamente, de um id e nomeDoCurso
   try {
     const curso = req.body;
+
+    if (!curso.id || !curso.nomeDoCurso) {
+      return res.status(400).json({ error: "id e nomeDoCurso são obrigatórios" });
+    }
 
     // verifica se já existe nomeDoCurso
     const nomeExistente = await cursosCollection.findOne({ nomeDoCurso: curso.nomeDoCurso });
