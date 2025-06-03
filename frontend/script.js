@@ -20,10 +20,9 @@ abrirForm.addEventListener("click", function () {
   abrirForm.classList.add("hidden");
   nomeAluno.value = "";
   apelidoAluno.value = "";
-  cursoAluno.value = "4";
   anoCurricular.value = "1";
-
-  formAddCursos(getCursos());
+  formAddCursos();
+  cursoAluno.value = "4";
 
   for (let i = idades.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -33,9 +32,22 @@ abrirForm.addEventListener("click", function () {
   idadeRange.value = 0;
 });
 
+// função para inserir os cursos no select
+async function formAddCursos() {
+  const cursos = await getCursos();
+  cursoAluno.innerHTML = "";
+
+  cursos.forEach((curso) => {
+    const option = document.createElement("option");
+    option.value = curso.id;
+    option.textContent = curso.nomeDoCurso;
+    cursoAluno.appendChild(option);
+  });
+}
+
 // função para pegar os cursos pelo endpoint
 function getCursos() {
-  return fetch("http://localhost:3058/cursos")
+   return fetch("http://localhost:3058/cursos")
     .then((response) => response.json())
     .then((cursos) => {
       return cursos;
@@ -173,32 +185,11 @@ verAlunos.addEventListener("click", function () {
               idade: aluno.idade,
             };
             console.log("Editando aluno:", original);
-            alunoDiv.querySelector(
-              "#nomeAluno"
-            ).innerHTML = `<input type="text" id="nomeAlunoInput" value="${aluno.nome}" required autocomplete="off">`;
-            alunoDiv.querySelector(
-              "#apelidoAluno"
-            ).innerHTML = `<input type="text" id="apelidoAlunoInput" value="${aluno.apelido}" required autocomplete="off">`;
-            alunoDiv.querySelector(
-              "#idadeAluno"
-            ).innerHTML = `<input type="number" id="idadeAlunoInput" min="16" max="128" value="${aluno.idade}">`;
+            alunoDiv.querySelector("#nomeAluno").innerHTML = `<input type="text" id="nomeAlunoInput" value="${aluno.nome}" required autocomplete="off">`;
+            alunoDiv.querySelector("#apelidoAluno").innerHTML = `<input type="text" id="apelidoAlunoInput" value="${aluno.apelido}" required autocomplete="off">`;
+            alunoDiv.querySelector("#idadeAluno").innerHTML = `<input type="number" id="idadeAlunoInput" min="16" max="128" value="${aluno.idade}">`;
 
-            alunoDiv.querySelector("#cursoAluno").innerHTML = `
-                        <select id="cursoAlunoInput">
-                            <option value="1" ${
-                              aluno.curso === "1" ? "selected" : ""
-                            }>Engenharia da Computação Gráfica e Multimédia</option>
-                            <option value="2" ${
-                              aluno.curso === "2" ? "selected" : ""
-                            }>Engenharia de Redes e Sistemas de Computadores</option>
-                            <option value="3" ${
-                              aluno.curso === "3" ? "selected" : ""
-                            }>Bacharelado em Sistemas de Informação</option>
-                            <option value="4" ${
-                              aluno.curso === "4" ? "selected" : ""
-                            }>Curso de Graduação em Cinema</option>
-                        </select>
-                    `;
+            editAddCursos(alunoDiv, aluno);
 
             alunoDiv.querySelector("#anoAluno").innerHTML = `
                         <select id="anoCurricularInput">
@@ -309,6 +300,24 @@ verAlunos.addEventListener("click", function () {
       console.error("Erro ao buscar alunos:", error);
     });
 });
+
+// função para inserir os cursos na edição de aluno
+async function editAddCursos(alunoDiv, aluno) {
+  const cursos = await getCursos();
+  const divCurso = alunoDiv.querySelector("#cursoAluno");
+  divCurso.innerHTML = "<select id=\"cursoAlunoInput\"></select>";
+  const cursoSelectInput = alunoDiv.querySelector("#cursoAlunoInput");
+
+  cursos.forEach((curso) => {
+    const option = document.createElement("option");
+    option.value = curso.id;
+    option.textContent = curso.nomeDoCurso;
+    if (curso.id === aluno.curso) {
+      option.selected = true;
+    }
+    cursoSelectInput.appendChild(option);
+  });
+}
 
 // função para corrigir a exibição do curso
 function fixCurso(curso) {
