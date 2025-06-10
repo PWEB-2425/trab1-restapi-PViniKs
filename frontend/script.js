@@ -5,7 +5,6 @@ const cancelAluno = document.querySelector("#cancelAluno");
 const addAluno = document.querySelector("#addAluno");
 const idadeRange = document.querySelector("#idadeAluno");
 const idadeValor = document.querySelector("#idadeValue");
-const idades = Array.from({ length: 128 - 16 + 1 }, (_, i) => i + 16);
 const nomeAluno = document.querySelector("#nomeAluno");
 const apelidoAluno = document.querySelector("#apelidoAluno");
 const cursoAluno = document.querySelector("#cursoAluno");
@@ -24,12 +23,7 @@ abrirForm.addEventListener("click", function () {
   formAddCursos();
   cursoAluno.value = "4";
 
-  for (let i = idades.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [idades[i], idades[j]] = [idades[j], idades[i]];
-  }
-  idadeValor.textContent = idades[0];
-  idadeRange.value = 0;
+  idadeValor.textContent = idadeRange.value;
 });
 
 // função para inserir os cursos no select
@@ -59,11 +53,8 @@ function getCursos() {
 }
 
 // range de idades (16 a 128 anos)
-idadeRange.min = 0;
-idadeRange.max = idades.length - 1;
-idadeRange.value = 0;
 idadeRange.addEventListener("input", function () {
-  idadeValor.textContent = idades[this.value];
+  idadeValor.textContent = idadeRange.value;
 });
 
 // botão para cancelar a adição de aluno
@@ -90,7 +81,7 @@ addAluno.addEventListener("click", function (e) {
       apelido: apelido,
       curso: cursoAluno.value,
       anoCurricular: anoCurricular.value,
-      idade: idades[idadeRange.value],
+      idade: idadeRange.value,
     };
 
     // solicita POST para adicionar aluno
