@@ -122,7 +122,7 @@ trab1-restapi-PViniKs/
 ## 6. Documentação da API (Swagger)
 
 - Documentação dos endpoints disponível em `/api-docs` na API real.
-- Arquivo de configuração Swagger: [`backend/routes.js`](backend/routes.js)
+- Arquivo de configuração Swagger: [`backend/docs/routes.js`](backend/docs/routes.js)
 - Acesse: [https://trab1-pw-backend.onrender.com/api-docs/](https://trab1-pw-backend.onrender.com/api-docs/)
 
 ---
