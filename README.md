@@ -103,6 +103,10 @@ trab1-restapi-PViniKs/
   - `POST /alunos` — Adiciona um novo aluno
   - `PUT /alunos/update/:id` — Atualiza um aluno pelo ID
   - `DELETE /alunos/delete/:id` — Remove um aluno pelo ID
+  - `GET /cursos` — Lista todos os cursos
+  - `POST /cursos` — Adiciona um novo curso
+  - `PUT /cursos/update/:id` — Atualiza um curso pelo ID
+  - `DELETE /cursos/delete/:id` — Remove um curso pelo ID
 - Conexão com MongoDB Atlas para persistência dos dados.
 
 ---
