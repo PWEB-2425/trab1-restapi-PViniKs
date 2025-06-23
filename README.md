@@ -175,7 +175,7 @@ Abra [`frontend/index.html`](frontend/index.html) no navegador ou por meio de um
 
 ## Créditos
 
-- Autor: Paulo Vinícius Kuss ([pviniks@gmail.com](mailto:pviniks@gmail.com))
+- Autor: Paulo Vinícius Kuss – 35093 ([pviniks@gmail.com](mailto:pviniks@gmail.com))
 - Projeto desenvolvido para a disciplina de Programação Web
 
 ---
